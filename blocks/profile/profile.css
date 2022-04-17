@@ -10,7 +10,7 @@
     .profile {
       width: calc(100% - 38px);
     }
-  }
+}
 
 @media screen and (max-width: 665px) {
     .profile {
@@ -21,7 +21,7 @@
   
 @media screen and (max-width: 480px) {
     .profile {
-      width: 100%
+      width: 100%;
     }
 }
   

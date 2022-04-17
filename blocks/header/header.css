@@ -8,7 +8,7 @@
 
 @media screen and (max-width: 930px) {
     .header {
-      width: calc(100% - 38px);;
+      width: calc(100% - 38px);
     }
   }
 
@@ -16,14 +16,14 @@
     .header {
       min-height: 64px;
     }
-  }
+}
   
-  @media screen and (max-width: 480px) {
+@media screen and (max-width: 480px) {
     .header {
       min-height: 56px;
       margin: 28px auto 0;
-      width: 100%
+      width: 100%;
     }
-  }
+}
   
 
