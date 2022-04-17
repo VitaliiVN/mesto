@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./pages/index.css">
+  <title>Mesto</title>
+</head>
+<body class="page">
+    <header class="header">
+      <img class="header__logo" alt="Место лого" src="./images/logo.svg">
+    </header>
+
+    <main class="content">
+      <section class="profile">
+          <div class="profile__badge">
+             <img src="./images/prof_image.jpg" alt="Жак-Ив Кусто" class="profile__image">
+             <div class="profile__info">
+                <div class="profile__header">
+                  <h1 class="profile__title">Жак-Ив Кусто</h1>
+                  <button class="profile__edit-button" type="button" aria-label="Редактировать профиль"></button>
+                </div>
+                <p class="profile__description">Исследователь океана</p>
+             </div>
+          </div>   
+          <button class="profile__add-button" type="button" aria-label="Добавить профиль"></button>
+      </section>
+
+      <section>
+        <ul class="elements">
+            <li class="element">
+              <img class="element__image" src="./images/1_kirill-pershin.jpg" alt="Карачаевск">
+              <div class="element__info">
+                <h2 class="element__title">Карачаевск</h2>
+                <div class="element__reaction">
+                  <button class="element__like-it" type="button" aria-label="Поставить лайк"></button>
+                </div>
+              </div>
+            </li>
+            <li class="element">
+              <img class="element__image" src="./images/2_kirill-pershin.jpg" alt="Гора Эльбрус">
+              <div class="element__info">
+                <h2 class="element__title">Гора Эльбрус</h2>
+                <div class="element__reaction">
+                  <button class="element__like-it" type="button" aria-label="Поставить лайк"></button>
+                </div>
+              </div>
+            </li>
+            <li class="element">
+              <img class="element__image" src="./images/3_kirill-pershin.jpg" alt="Домбай">
+              <div class="element__info">
+                <h2 class="element__title">Домбай</h2>
+                <div class="element__reaction">
+                  <button class="element__like-it" type="button" aria-label="Поставить лайк"></button>
+                </div>
+              </div>
+            </li>
+            <li class="element">
+              <img class="element__image" src="./images/4_kirill-pershin.jpg" alt="Гора Эльбрус">
+              <div class="element__info">
+                <h2 class="element__title">Гора Эльбрус</h2>
+                <div class="element__reaction">
+                  <button class="element__like-it" type="button" aria-label="Поставить лайк"></button>
+                </div>
+              </div>
+            </li>
+            <li class="element">
+              <img class="element__image" src="./images/5_kirill-pershin.jpg" alt="Домбай">
+              <div class="element__info">
+                <h2 class="element__title">Домбай</h2>
+                <div class="element__reaction">
+                  <button class="element__like-it" type="button" aria-label="Поставить лайк"></button>
+                </div>
+              </div>
+            </li>
+            <li class="element">
+              <img class="element__image" src="./images/6_kirill-pershin.jpg" alt="Карачаево-Черкесия">
+              <div class="element__info">
+                <h2 class="element__title">Карачаево-Черкесия</h2>
+                <div class="element__reaction">
+                  <button class="element__like-it" type="button" aria-label="Поставить лайк"></button>
+                </div>
+              </div>
+            </li>
+        </ul>
+     </section>
+    </main>
+
+  <footer class="footer">
+      <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
+  </footer>
+  <section class="popup popup_type_edit">
+    <div class="popup__container">
+      <h2 class="popup__header">Редактировать профиль</h2>
+      <form class="popup__form" name="PopupProfileForm" novalidate="">
+        <input id="name-input" placeholder="Имя" class="popup__input popup__input_name" name="name" minlength="2" maxlength="40" required=""> 
+        <span id="name-input-error" class="popup__input-error"></span> 
+        <input id="about-input" placeholder="О себе" class="popup__input popup__input_about" name="about" minlength="2" maxlength="200" required=""> 
+        <span id="popup-input-error" class="popup__input-error"></span> 
+        <button class="popup__submit-button" type="submit">Сохранить</button>
+      </form>
+      <button class="popup__close-button" type="button" aria-label="Закрыть окно"></button>
+    </div>
+  </section>
+
+  <script src="./pages/index.js"></script>
+</body>
+</html>
+

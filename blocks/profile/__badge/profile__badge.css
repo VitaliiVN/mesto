@@ -1,0 +1,21 @@
+.profile__badge {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-right: 20px;
+}
+
+@media screen and (max-width: 665px) {
+    .profile__badge {
+      flex-direction: column;
+      justify-content: center;
+      margin: 0;
+    }
+}
+  
+@media screen and (max-width: 480px) {
+    .profile__badge {
+      width: 100%;
+    }
+}
+  

@@ -1,0 +1,17 @@
+.page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1280px;
+    margin: 0 auto;
+    font-family: Inter, Georgia, "Times New Roman", Times, serif;
+    background: #000000;
+    color: #FFFFFF;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }

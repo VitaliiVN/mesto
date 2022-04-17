@@ -1,0 +1,19 @@
+.element__like-it {
+    align-self: flex-start;
+    background-color: transparent;
+    border: none;
+    background-image: url(../../../images/like_disabled.svg);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 20.76px;
+    height: 18.13px;
+    padding: 0;
+    transition: opacity .3s ease-in;
+  }
+  
+  .element__like-it:hover {
+    opacity: 0.6;
+    cursor: pointer;
+  }
+  
