@@ -6,8 +6,14 @@
     max-width: 440px;
 }
 
-@media screen and (max-width: 665px) {
+@media screen and (max-width: 805px) {
     .profile__info {
         padding: 0;
+    }
+}
+
+@media screen and (max-width: 665px) {
+    .profile__info {
+        padding: 24px 0 0 17px;
     }
 }

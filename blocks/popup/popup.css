@@ -2,7 +2,7 @@
     visibility: hidden;
     display: flex;
     position: fixed;
-    top: 0;
+    top: -123px;
     left: 0;
     background-color: rgba(0,0,0,0.5);
     width: 100%;
@@ -13,3 +13,10 @@
     opacity: 0;
     transition: visibility 0.3s, opacity 0.3s ease-in;
 }
+
+
+@media screen and (max-width: 505px) {
+    .popup {
+        top: -60px;
+    }
+  }

@@ -1,10 +1,10 @@
 let editButton = document.querySelector('.profile__edit-button');
 let closeButton = document.querySelector('.popup__close-button');
-let submitВutton = document.querySelector('.popup__submit-button');
+let formProfileEdit = document.querySelector('.popup__form');
 
-let formProfileEdit = document.querySelector('.popup');
-let nameInput = document.getElementById('name-input');
-let aboutInput = document.getElementById('about-input');
+let popupProfile = document.querySelector('.popup_type_edit');
+let nameInput = formProfileEdit.querySelector('.popup__input_type_name');
+let aboutInput = formProfileEdit.querySelector('.popup__input_type_about');
 
 
 let profileTitle = document.querySelector('.profile__title');
@@ -12,37 +12,37 @@ let profileDescription = document.querySelector('.profile__description');
 
 
 //функция показывающая/скрывающая форму редактирования профиля
-function PopupProfileEdit() {
-    if (formProfileEdit.classList.contains ('popup_opened')) {
-        formProfileEdit.classList.remove('popup_opened');
+function popupFormActivate() {
+    if (popupProfile.classList.contains ('popup_opened')) {
+        popupProfile.classList.remove('popup_opened');
     } else {
-        formProfileEdit.classList.add('popup_opened');
+        popupProfile.classList.add('popup_opened');
         nameInput.value = profileTitle.textContent;
         aboutInput.value = profileDescription.textContent;
     }    
 } 
 
 //функция сохраняющия поля из формы редактирования профиля
-function PopupProfileSubmit(evt) {
+function popupProfileSubmit(evt) {
     evt.preventDefault();
-    nameInput = document.getElementById('name-input');
-    aboutInput = document.getElementById('about-input');
+/*  nameInput = document.getElementById('name-input');
+    aboutInput = document.getElementById('about-input');*/
 
     profileTitle.textContent = nameInput.value;
     profileDescription.textContent = aboutInput.value;
 
-    PopupProfileEdit();
+    popupFormActivate();
 }
 
 
 //слушатель - редактирование профиля
-editButton.addEventListener('click', PopupProfileEdit);
+editButton.addEventListener('click', popupFormActivate);
 
 //слушатель - закрытия формы редактирование профиля
-closeButton.addEventListener('click', PopupProfileEdit);
+closeButton.addEventListener('click', popupFormActivate);
 
 //слушатель - сохрание полей профиля
-submitВutton.addEventListener('click', PopupProfileSubmit);
+formProfileEdit.addEventListener('submit', popupProfileSubmit);
 
 //слушатели - кнопок лайк
 document.querySelectorAll('.element__like-it').forEach(item => {

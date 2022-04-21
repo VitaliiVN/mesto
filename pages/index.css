@@ -18,10 +18,10 @@
 
 @import url(../blocks/element/element.css);
 @import url(../blocks/elements/elements.css);
+@import url(../blocks/elements/__list/elements__list.css);
 @import url(../blocks/element/__image/element__image.css);
 @import url(../blocks/element/__info/element__info.css);
 @import url(../blocks/element/__title/element__title.css);
-@import url(../blocks/element/__reaction/element__reaction.css);
 @import url(../blocks/element/__like-it/element__like-it.css);
 @import url(../blocks/element/__like-it/_activated/element__like-it_activated.css);
 

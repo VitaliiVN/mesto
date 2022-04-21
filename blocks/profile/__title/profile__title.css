@@ -1,7 +1,8 @@
 .profile__title {
+    font-style: normal;
     font-weight: 500;
     font-size: 42px;
-    line-height: 1.33;
+    line-height: 48px;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
@@ -19,5 +20,6 @@
       font-size: 27px;
       text-align: center;
       margin: 0 7px 0 0;
+      max-width: 260px;
     }
   }

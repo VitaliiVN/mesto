@@ -15,14 +15,14 @@
 
   @media screen and (max-width: 665px) {
     .element__image {
-        height: 550px;
+        height: 400px;
     }
 }
   
 
-  @media screen and (max-width: 350px) {
+  @media screen and (max-width: 321px) {
     .element__image {
-      width: 282px;
+      max-width: 282px;
       height: 282px;
     }
   }

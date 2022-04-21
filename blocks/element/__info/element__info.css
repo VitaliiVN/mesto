@@ -12,8 +12,9 @@
     color: #000;
 }  
 
- @media screen and (max-width: 350px) {
+ @media screen and (max-width: 321px) {
     .element__info {
-      width: 282px;
+      max-width: 282px;
+      text-align: center;
     }
 }
