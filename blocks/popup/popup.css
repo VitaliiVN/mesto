@@ -2,7 +2,7 @@
     visibility: hidden;
     display: flex;
     position: fixed;
-    top: -123px;
+    top: 0;
     left: 0;
     background-color: rgba(0,0,0,0.5);
     width: 100%;
@@ -14,9 +14,9 @@
     transition: visibility 0.3s, opacity 0.3s ease-in;
 }
 
+/* 
+Замечание: Попап должен быть на всю высоту экрана, контейнер попапа отцентрован на всех разрешениях по центру экрана, а сейчас это сломалось 
 
-@media screen and (max-width: 505px) {
-    .popup {
-        top: -60px;
-    }
-  }
+Решение: Увлёкся подгоном под макет в Figma + PixelPerfect, при подгоне не обратил внимание на высоту страницы макета в Figma демонстрирующего Popup. 
+Исправил центровку.
+*/
