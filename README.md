@@ -5,7 +5,7 @@
 Сайт одностраник с функциональностью добаления и удаления элементов страницы - карточек мест, с через модификацию DOM.
  
 
-**Ссылка на GitHub Pages:** [MESTO -Проектная работа №4 ](https://vitaliivn.github.io/mesto/index.html)
+**Ссылка на GitHub Pages:** [MESTO -Проектная работа №5S ](https://vitaliivn.github.io/mesto/index.html)
 
 **Figma**
 [Ссылка на проект в Figma: Бриф (Figma) - проектная работа №5](https://www.figma.com/file/bjyvbKKJN2naO0ucURl2Z0/JavaScript.-Sprint-5?node-id=0%3A1)
