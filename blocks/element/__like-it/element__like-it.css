@@ -6,7 +6,7 @@
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
-    width: 22px;
+    min-width: 22px;
     height: 19px;
     padding: 0;
     transition: opacity .3s ease-in;

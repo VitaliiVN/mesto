@@ -28,7 +28,7 @@
 
       <section class="elements">
         <ul class="elements__list">
-            <li class="element">
+     <!--       <li class="element">
               <img class="element__image" src="./images/1_kirill-pershin.jpg" alt="Карачаевск">
               <div class="element__info">
                 <h2 class="element__title">Карачаевск</h2>
@@ -70,6 +70,7 @@
                   <button class="element__like-it" type="button" aria-label="Поставить лайк"></button>
               </div>
             </li>
+          -->
         </ul>
      </section>
     </main>
@@ -80,14 +81,46 @@
   <div class="popup popup_type_edit">
     <div class="popup__container">
       <h2 class="popup__header">Редактировать профиль</h2>
-      <form class="popup__form" name="popup-profile-form" novalidate="">
-        <input id="name-input" placeholder="Имя" class="popup__input popup__input_type_name" name="name" minlength="2" maxlength="40" required=""> 
-        <input id="about-input" placeholder="О себе" class="popup__input popup__input_type_about" name="about" minlength="2" maxlength="200" required=""> 
+      <form class="popup__form" name="popup-profile-form" novalidate>
+        <input id="name-input" placeholder="Имя" class="popup__input popup__input_type_name" name="name" minlength="2" maxlength="40" required> 
+        <input id="about-input" placeholder="О себе" class="popup__input popup__input_type_about" name="about" minlength="2" maxlength="200" required> 
         <button class="popup__submit-button" type="submit">Сохранить</button>
       </form>
-      <button class="popup__close-button" type="button" aria-label="Закрыть окно"></button>
+      <button id="close-button-edit-card-form" class="popup__close-button" type="button" aria-label="Закрыть окно"></button>
     </div>
   </div>
+
+ <div class="popup popup_type_add-card">
+    <div class="popup__container">
+      <h3 class="popup__header">Новое место</h3>
+      <form class="popup__form" name="popup-card-form" novalidate>
+        <input id="card-name-input" type="text" placeholder="Название" class="popup__input popup__input_type_card-name" name="name" minlength="2" maxlength="40" required>
+        <input id="card-link-input" type="url" placeholder="Ссылка на картинку" class="popup__input popup__input_type_card-link" name="link" required>
+        <button class="popup__submit-button" type="submit">Сохранить</button>
+      </form>
+      <button id="close-button-add-card-form" class="popup__close-button" type="button" aria-label="Закрыть окно"></button>
+    </div>
+ </div> 
+
+ <div class="popup popup_type_picture">
+  <div class="popup__container popup__container_type_picture">
+    <img class="popup__picture" src=" " alt=" ">
+    <h2 class="popup__picture-title"></h2>
+    <button id="close-button-picture" class="popup__close-picture" type="button" aria-label="Закрыть окно"></button>
+  </div>
+</div>
+
+<template id = "card-template">
+  <li class="element">
+    <button class="element__trash-can" type="button" aria-label="Удалить карточку"></button>
+    <img class="element__image" src="" alt="">
+    <div class="element__info">
+      <h2 class="element__title"></h2>
+        <button class="element__like-it" type="button" aria-label="Поставить лайк"></button>
+    </div>
+  </li>
+</template>
+
 
   <script src="./pages/index.js"></script>
 </body>
