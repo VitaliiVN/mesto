@@ -59,11 +59,11 @@ function createCard(srcValue, titleValue) {
   const cardElement = cardTemplate.querySelector('.element').cloneNode(true);
   const likeButton = cardElement.querySelector('.element__like-it');
   const trashButton = cardElement.querySelector('.element__trash-can');
-  const pictureButton = cardElement.querySelector('.element__image');
+  const cardImage = cardElement.querySelector('.element__image');
 
   //Заполняем атрибуты
-  cardElement.querySelector('.element__image').setAttribute("src", srcValue);
-  cardElement.querySelector('.element__image').setAttribute("alt", titleValue);
+  cardImage.setAttribute("src", srcValue);
+  cardImage.setAttribute("alt", titleValue);
   cardElement.querySelector('.element__title').textContent = titleValue;
 
   //добавляем слушателя кнопки Like
@@ -71,7 +71,7 @@ function createCard(srcValue, titleValue) {
   //добавляем слушателя для кноки удаления
   trashButton.addEventListener('click', function () { trashButton.closest('.element').remove();});
   //добавляем слушатель для клика по картинке
-  pictureButton.addEventListener('click', function () { showHidePopup(popupPicture);
+  cardImage.addEventListener('click', function () { showHidePopup(popupPicture);
                                                         srcPicture.setAttribute('src', pictureButton.getAttribute('src') );
                                                         srcPicture.setAttribute('alt', pictureButton.getAttribute('alt'));
                                                         pictureTitle.textContent = pictureButton.getAttribute('alt');
