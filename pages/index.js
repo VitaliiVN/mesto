@@ -72,9 +72,9 @@ function createCard(srcValue, titleValue) {
   trashButton.addEventListener('click', function () { trashButton.closest('.element').remove();});
   //добавляем слушатель для клика по картинке
   cardImage.addEventListener('click', function () { showHidePopup(popupPicture);
-                                                        srcPicture.setAttribute('src', pictureButton.getAttribute('src') );
-                                                        srcPicture.setAttribute('alt', pictureButton.getAttribute('alt'));
-                                                        pictureTitle.textContent = pictureButton.getAttribute('alt');
+                                                        srcPicture.setAttribute('src', cardImage.getAttribute('src') );
+                                                        srcPicture.setAttribute('alt', cardImage.getAttribute('alt'));
+                                                        pictureTitle.textContent = cardImage.getAttribute('alt');
                                                                                 });
   return cardElement;                                                                               
 } 
