@@ -83,8 +83,8 @@ function createCard(srcValue, titleValue) {
 //Создание карточки черех форму
 function submitCardForm(evt) {
   evt.preventDefault();
-  cardsContainer.prepend(createCard(cardUrlInput.value, cardUrlInput));
-  cardUrlInput.value="";
+  cardsContainer.prepend(createCard(cardUrlInput, cardNameInput.value));
+  cardNameInput.value="";
   cardUrlInput.value="";
   showHidePopup(popupCard);
 }
