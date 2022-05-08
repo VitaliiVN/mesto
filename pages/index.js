@@ -90,7 +90,7 @@ function submitCardForm(evt) {
   cardsContainer.prepend(createCard(cardUrlInput.value, cardNameInput.value));
   cardNameInput.value="";
   cardUrlInput.value="";
-  showPopup(popupCard);
+  hidePopup(popupCard);
 }
 
 //слушатель - редактирование профиля
