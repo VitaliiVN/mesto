@@ -27,19 +27,23 @@ const pictureTitle = popupPicture.querySelector(".popup__picture-title");
 const cardTemplate = document.querySelector("#card-template").content;
 const cardsContainer = document.querySelector(".elements__list");
 
-//универсальная функция отображающая и скрывающая Popup
-function showHidePopup(popupConst) {
-  popupConst.classList.toggle("popup_opened");
+// функция отображающая Popup и скрывающая Popup
+function showPopup(popupConst) {
+  popupConst.classList.add("popup_opened");
 }
+
+// функция скрывающая Popup
+function hidePopup(popupConst) {
+  popupConst.classList.remove("popup_opened");
+}
+
 
 //Редактирование профиля
 //функция показывающая/скрывающая форму редактирования профиля
 function activateProfileEditPopup() {
-  if (!popupProfile.classList.contains("popup_opened")) {
-    nameInput.value = profileTitle.textContent;
-    aboutInput.value = profileDescription.textContent;
-  }
-  showHidePopup(popupProfile);
+  nameInput.value = profileTitle.textContent;
+  aboutInput.value = profileDescription.textContent;
+  showPopup(popupProfile);
 }
 
 //функция сохраняющия поля из формы редактирования профиля
@@ -47,7 +51,7 @@ function submitProfileForm(evt) {
   evt.preventDefault();
   profileTitle.textContent = nameInput.value;
   profileDescription.textContent = aboutInput.value;
-  activateProfileEditPopup();
+  hidePopup(popupProfile);
 }
 
 //Генерация карточки
@@ -72,7 +76,7 @@ function createCard(srcValue, titleValue) {
   });
   //добавляем слушатель для клика по картинке
   cardImage.addEventListener("click", function () {
-    showHidePopup(popupPicture);
+    showPopup(popupPicture);
     srcPicture.setAttribute("src", cardImage.getAttribute("src"));
     srcPicture.setAttribute("alt", cardImage.getAttribute("alt"));
     pictureTitle.textContent = cardImage.getAttribute("alt");
@@ -86,26 +90,28 @@ function submitCardForm(evt) {
   cardsContainer.prepend(createCard(cardUrlInput.value, cardNameInput.value));
   cardNameInput.value="";
   cardUrlInput.value="";
-  showHidePopup(popupCard);
+  showPopup(popupCard);
 }
 
 //слушатель - редактирование профиля
 profileEditButton.addEventListener("click", activateProfileEditPopup);
 
 //слушатель - закрытия формы редактирование профиля
-profileEditFormCloseButton.addEventListener("click", activateProfileEditPopup);
+profileEditFormCloseButton.addEventListener("click", function () {
+  hidePopup(popupProfile);
+});
 
 //слушатель - сохрание полей профиля
 profileEditForm.addEventListener("submit", submitProfileForm);
 
 //слушатель - кнопки добавления карточки
 cardAddButton.addEventListener("click", function () {
-  showHidePopup(popupCard);
+  showPopup(popupCard);
 });
 
 //слушатель - закрытия формы добавления карточки
 cardAddFormCloseButton.addEventListener("click", function () {
-  showHidePopup(popupCard);
+  hidePopup(popupCard);
 });
 
 //слушатель - сохрание карточки
@@ -113,7 +119,7 @@ cardAddForm.addEventListener("submit", submitCardForm);
 
 //слушатель - закрытия попапа с картинкой
 pictureCloseButton.addEventListener("click", function () {
-  showHidePopup(popupPicture);
+  hidePopup(popupPicture);
 });
 
 //инициализация стартовых карточек из массива
