@@ -72,12 +72,6 @@ function activateProfileEditPopup() {
   showPopup(popupProfile);
 };
 
-//функция отключения кнопки для использования при сабмите
-function disableSubmitButton (evt) {
-  evt.Target.classList.add("popup__submit-button_inactive");
-  evt.Target.disabled = true;
-}
-
 //функция сохраняющия поля из формы редактирования профиля
 function submitProfileForm(evt) {
   evt.preventDefault();
@@ -101,7 +95,7 @@ function createCard(srcValue, titleValue) {
 
   //добавляем слушателя кнопки Like
   likeButton.addEventListener("click", function () {
-    likeButton.classList.toggle("element__like-it_activated");
+  likeButton.classList.toggle("element__like-it_activated");
   });
   //добавляем слушателя для кноки удаления
   trashButton.addEventListener("click", function () {
@@ -122,10 +116,9 @@ function submitCardForm(evt) {
   evt.preventDefault();
   cardsContainer.prepend(createCard(cardUrlInput.value, cardNameInput.value));
   cardAddForm.reset();
-  //cardNameInput.value="";
-  //cardUrlInput.value="";
   hidePopup(popupCard);
-  disableSubmitButton(evt);
+  cardAddButton.classList.add("popup__submit-button_inactive");
+  cardAddButton.disabled = true;
 };
 
 
