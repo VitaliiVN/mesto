@@ -78,7 +78,6 @@ function submitProfileForm(evt) {
   profileTitle.textContent = nameInput.value;
   profileDescription.textContent = aboutInput.value;
   hidePopup(popupProfile);
-  disableSubmitButton(evt);
 };
 
 //Генерация карточки
@@ -117,8 +116,8 @@ function submitCardForm(evt) {
   cardsContainer.prepend(createCard(cardUrlInput.value, cardNameInput.value));
   cardAddForm.reset();
   hidePopup(popupCard);
-  cardAddButton.classList.add("popup__submit-button_inactive");
-  cardAddButton.disabled = true;
+  //cardAddButton.classList.add("popup__submit-button_inactive");
+  //cardAddButton.disabled = true;
 };
 
 
