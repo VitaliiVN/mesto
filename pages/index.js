@@ -167,7 +167,10 @@ popupProfile.addEventListener("mousedown", closeOverlayClick);
 
 //инициализация стартовых карточек из массива
 initialCards.forEach((item) =>
-  cardsContainer.append(createCard(item.link, item.name))
+  cardsContainer.append(createCard({
+    srcValue: item.link,
+    titleValue: item.name
+    }))
 );
 
 
