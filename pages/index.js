@@ -116,8 +116,8 @@ function submitCardForm(evt) {
   cardsContainer.prepend(createCard(cardUrlInput.value, cardNameInput.value));
   cardAddForm.reset();
   hidePopup(popupCard);
-  //cardAddButton.classList.add("popup__submit-button_inactive");
-  //cardAddButton.disabled = true;
+  popupCard.closest("popup__submit-button").classList.add("popup__submit-button_inactive");
+  popupCard.closest("popup__submit-button").disabled = true;
 };
 
 
