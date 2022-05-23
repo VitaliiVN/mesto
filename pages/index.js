@@ -42,18 +42,16 @@ function closePopupOnEscapeKey(evt) {
   }
 };
 
-
 // функция отображающая Popup и скрывающая Popup
 function showPopup(popupConst) {
   popupConst.classList.add("popup_opened");
-  popupConst.addEventListener("mousedown", closeOverlayClick);
+
   document.addEventListener("keydown", closePopupOnEscapeKey);
 };
 
 // функция скрывающая Popup
 function hidePopup(popupConst) {
   popupConst.classList.remove("popup_opened");
-  popupConst.removeEventListener("mousedown", closeOverlayClick);
   document.removeEventListener("keydown", closePopupOnEscapeKey);
 };
 
@@ -107,9 +105,12 @@ function createCard(srcValue, titleValue) {
 function submitCardForm(evt) {
   evt.preventDefault();
   cardsContainer.prepend(createCard(cardUrlInput.value, cardNameInput.value));
-  cardNameInput.value="";
-  cardUrlInput.value="";
+  popupCard.reset();
+  //cardNameInput.value="";
+  //cardUrlInput.value="";
   hidePopup(popupCard);
+  evt.currentTarget.classList.add("popup__submit-button_inactive");
+  evt.currentTarget.button.disabled = true;
 };
 
 
@@ -140,8 +141,6 @@ cardAddFormCloseButton.addEventListener("click", function () {
 });
 
 
-
-
 //слушатель - сохрание карточки
 cardAddForm.addEventListener("submit", submitCardForm);
 
@@ -150,7 +149,14 @@ pictureCloseButton.addEventListener("click", function () {
   hidePopup(popupPicture);
 });
 
+//слушатели - клик по оверлэю для закрытия попапа
+popupPicture.addEventListener("mousedown", closeOverlayClick);
+popupCard.addEventListener("mousedown", closeOverlayClick);
+popupProfile.addEventListener("mousedown", closeOverlayClick);
+
 //инициализация стартовых карточек из массива
 initialCards.forEach((item) =>
   cardsContainer.append(createCard(item.link, item.name))
 );
+
+
