@@ -44,9 +44,18 @@ function closePopupOnEscapeKey(evt) {
 
 // функция отображающая Popup и скрывающая Popup
 function showPopup(popupConst) {
-  popupConst.classList.add("popup_opened");
+  const spans = Array.from(popupConst.querySelectorAll("popup__input-error"));
 
+  spans.forEach((errorElement) => {
+    errorElement.classList.remove("popup__input-error_activated");
+    errorElement.textContent = "";
+  });
+
+  popupConst.classList.add("popup_opened");
   document.addEventListener("keydown", closePopupOnEscapeKey);
+
+
+
 };
 
 // функция скрывающая Popup
@@ -63,12 +72,19 @@ function activateProfileEditPopup() {
   showPopup(popupProfile);
 };
 
+//функция отключения кнопки для использования при сабмите
+function disableSubmitButton (evt) {
+  evt.currentTarget.classList.add("popup__submit-button_inactive");
+  evt.currentTarget.button.disabled = true;
+}
+
 //функция сохраняющия поля из формы редактирования профиля
 function submitProfileForm(evt) {
   evt.preventDefault();
   profileTitle.textContent = nameInput.value;
   profileDescription.textContent = aboutInput.value;
   hidePopup(popupProfile);
+  disableSubmitButton(evt);
 };
 
 //Генерация карточки
@@ -109,8 +125,7 @@ function submitCardForm(evt) {
   //cardNameInput.value="";
   //cardUrlInput.value="";
   hidePopup(popupCard);
-  evt.currentTarget.classList.add("popup__submit-button_inactive");
-  evt.currentTarget.button.disabled = true;
+  disableSubmitButton(evt);
 };
 
 
