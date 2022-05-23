@@ -82,16 +82,16 @@ function submitProfileForm(evt) {
 };
 
 //Генерация карточки
-function createCard(srcValue, titleValue) {
+function createCard(paramList) {
   const cardElement = cardTemplate.querySelector(".element").cloneNode(true);
   const likeButton = cardElement.querySelector(".element__like-it");
   const trashButton = cardElement.querySelector(".element__trash-can");
   const cardImage = cardElement.querySelector(".element__image");
 
   //Заполняем атрибуты
-  cardImage.setAttribute("src", srcValue);
-  cardImage.setAttribute("alt", titleValue);
-  cardElement.querySelector(".element__title").textContent = titleValue;
+  cardImage.setAttribute("src", paramList.srcValue);
+  cardImage.setAttribute("alt", paramList.titleValue);
+  cardElement.querySelector(".element__title").textContent = paramList.titleValue;
 
   //добавляем слушателя кнопки Like
   likeButton.addEventListener("click", function () {
@@ -114,7 +114,10 @@ function createCard(srcValue, titleValue) {
 //Создание карточки через форму
 function submitCardForm(evt) {
   evt.preventDefault();
-  cardsContainer.prepend(createCard(cardUrlInput.value, cardNameInput.value));
+  cardsContainer.prepend(createCard({
+    srcValue: cardUrlInput.value, 
+    titleValue: cardNameInput.value
+  }));
   cardAddForm.reset();
   hidePopup(popupCard);
   buttonSbtCard.classList.add("popup__submit-button_inactive");
