@@ -121,7 +121,8 @@ function createCard(srcValue, titleValue) {
 function submitCardForm(evt) {
   evt.preventDefault();
   cardsContainer.prepend(createCard(cardUrlInput.value, cardNameInput.value));
-  popupCard.reset();
+  //popupCard.reset();
+  document.querySelector(".popup_type_add-card").reset();
   //cardNameInput.value="";
   //cardUrlInput.value="";
   hidePopup(popupCard);
