@@ -74,8 +74,8 @@ function activateProfileEditPopup() {
 
 //функция отключения кнопки для использования при сабмите
 function disableSubmitButton (evt) {
-  evt.currentTarget.classList.add("popup__submit-button_inactive");
-  evt.currentTarget.disabled = true;
+  evt.Target.classList.add("popup__submit-button_inactive");
+  evt.Target.disabled = true;
 }
 
 //функция сохраняющия поля из формы редактирования профиля
