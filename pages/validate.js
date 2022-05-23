@@ -49,10 +49,10 @@ function showInputError(formElement, inputElement, errorMessage, config) {
   function toggleButtonState (inputList, buttonElement, config) {
     if (hasInvalidInput(inputList)) {
       buttonElement.classList.add(config.inactiveButtonClass);
-      buttonElement.button.disabled = true;
+      buttonElement.disabled = true;
     } else {
       buttonElement.classList.remove(config.inactiveButtonClass);
-      buttonElement.button.disabled = false;
+      buttonElement.disabled = false;
     }
   }; 
   
