@@ -19,6 +19,7 @@ const profileDescription = document.querySelector(".profile__description");
 const popupCard = document.querySelector(".popup_type_add-card");
 const cardNameInput = cardAddForm.querySelector(".popup__input_type_card-name");
 const cardUrlInput = cardAddForm.querySelector(".popup__input_type_card-link");
+const buttonSbtCard = cardAddForm.querySelector(".popup__submit-button");
 
 const popupPicture = document.querySelector(".popup_type_picture");
 const srcPicture = popupPicture.querySelector(".popup__picture");
@@ -116,8 +117,8 @@ function submitCardForm(evt) {
   cardsContainer.prepend(createCard(cardUrlInput.value, cardNameInput.value));
   cardAddForm.reset();
   hidePopup(popupCard);
-  popupCard.closest("popup__submit-button").classList.add("popup__submit-button_inactive");
-  popupCard.closest("popup__submit-button").disabled = true;
+  buttonSbtCard.classList.add("popup__submit-button_inactive");
+  buttonSbtCard.disabled = true;
 };
 
 
