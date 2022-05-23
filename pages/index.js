@@ -27,16 +27,35 @@ const pictureTitle = popupPicture.querySelector(".popup__picture-title");
 const cardTemplate = document.querySelector("#card-template").content;
 const cardsContainer = document.querySelector(".elements__list");
 
+
+// закрытие Popup по клику на оверлэй
+function closeOverlayClick(evt) {
+  if (evt.target === evt.currentTarget || evt.target.classList.contains("popup__close-button") ) {
+    hidePopup(evt.currentTarget);
+  }
+};
+
+// закрытие Popup по клавише Esc
+function closePopupOnEscapeKey(evt) {
+  if (evt.key === "Escape") {
+    hidePopup(document.querySelector(".popup_opened"));
+  }
+};
+
+
 // функция отображающая Popup и скрывающая Popup
 function showPopup(popupConst) {
   popupConst.classList.add("popup_opened");
-}
+  popupConst.addEventListener("mousedown", closeOverlayClick);
+  document.addEventListener("keydown", closePopupOnEscapeKey);
+};
 
 // функция скрывающая Popup
 function hidePopup(popupConst) {
   popupConst.classList.remove("popup_opened");
-}
-
+  popupConst.removeEventListener("mousedown", closeOverlayClick);
+  document.removeEventListener("keydown", closePopupOnEscapeKey);
+};
 
 //Редактирование профиля
 //функция показывающая/скрывающая форму редактирования профиля
@@ -44,7 +63,7 @@ function activateProfileEditPopup() {
   nameInput.value = profileTitle.textContent;
   aboutInput.value = profileDescription.textContent;
   showPopup(popupProfile);
-}
+};
 
 //функция сохраняющия поля из формы редактирования профиля
 function submitProfileForm(evt) {
@@ -52,7 +71,7 @@ function submitProfileForm(evt) {
   profileTitle.textContent = nameInput.value;
   profileDescription.textContent = aboutInput.value;
   hidePopup(popupProfile);
-}
+};
 
 //Генерация карточки
 function createCard(srcValue, titleValue) {
@@ -82,16 +101,22 @@ function createCard(srcValue, titleValue) {
     pictureTitle.textContent = cardImage.getAttribute("alt");
   });
   return cardElement;
-}
+};
 
-//Создание карточки черех форму
+//Создание карточки через форму
 function submitCardForm(evt) {
   evt.preventDefault();
   cardsContainer.prepend(createCard(cardUrlInput.value, cardNameInput.value));
   cardNameInput.value="";
   cardUrlInput.value="";
   hidePopup(popupCard);
-}
+};
+
+
+
+
+
+
 
 //слушатель - редактирование профиля
 profileEditButton.addEventListener("click", activateProfileEditPopup);
@@ -113,6 +138,9 @@ cardAddButton.addEventListener("click", function () {
 cardAddFormCloseButton.addEventListener("click", function () {
   hidePopup(popupCard);
 });
+
+
+
 
 //слушатель - сохрание карточки
 cardAddForm.addEventListener("submit", submitCardForm);
