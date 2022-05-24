@@ -1,4 +1,5 @@
 import initialCards from "./CardsPreset.js";
+import "./validate.js";
 
 const profileEditButton = document.querySelector(".profile__edit-button");
 const cardAddButton = document.querySelector(".profile__add-button");
