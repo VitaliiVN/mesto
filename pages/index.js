@@ -63,6 +63,8 @@ function hidePopup(popupConst) {
 function activateProfileEditPopup() {
   nameInput.value = profileTitle.textContent;
   aboutInput.value = profileDescription.textContent;
+
+  resetFormValidation(profileEditForm, initValidateParam);
   showPopup(popupProfile);
 };
 
