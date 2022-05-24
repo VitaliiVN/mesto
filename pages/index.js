@@ -45,18 +45,8 @@ function closePopupOnEscapeKey(evt) {
 
 // функция отображающая Popup и скрывающая Popup
 function showPopup(popupConst) {
-  const spans = Array.from(popupConst.querySelectorAll("popup__input-error"));
-
-  spans.forEach((errorElement) => {
-    errorElement.classList.remove("popup__input-error_activated");
-    errorElement.textContent = "";
-  });
-
   popupConst.classList.add("popup_opened");
   document.addEventListener("keydown", closePopupOnEscapeKey);
-
-
-
 };
 
 // функция скрывающая Popup
@@ -99,7 +89,7 @@ function createCard(paramList) {
   });
   //добавляем слушателя для кноки удаления
   trashButton.addEventListener("click", function () {
-    trashButton.closest(".element").remove();
+  trashButton.closest(".element").remove();
   });
   //добавляем слушатель для клика по картинке
   cardImage.addEventListener("click", function () {
@@ -120,13 +110,8 @@ function submitCardForm(evt) {
   }));
   cardAddForm.reset();
   hidePopup(popupCard);
-  buttonSbtCard.classList.add("popup__submit-button_inactive");
-  buttonSbtCard.disabled = true;
+  //disableSbtButton(buttonSbtCard, "popup__submit-button_inactive");
 };
-
-
-
-
 
 
 
@@ -150,7 +135,6 @@ cardAddButton.addEventListener("click", function () {
 cardAddFormCloseButton.addEventListener("click", function () {
   hidePopup(popupCard);
 });
-
 
 //слушатель - сохрание карточки
 cardAddForm.addEventListener("submit", submitCardForm);
