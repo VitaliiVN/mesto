@@ -1,5 +1,4 @@
 import initialCards from "./CardsPreset.js";
-import "./validate.js";
 
 const profileEditButton = document.querySelector(".profile__edit-button");
 const cardAddButton = document.querySelector(".profile__add-button");
@@ -20,7 +19,6 @@ const profileDescription = document.querySelector(".profile__description");
 const popupCard = document.querySelector(".popup_type_add-card");
 const cardNameInput = cardAddForm.querySelector(".popup__input_type_card-name");
 const cardUrlInput = cardAddForm.querySelector(".popup__input_type_card-link");
-const buttonSbtCard = cardAddForm.querySelector(".popup__submit-button");
 
 const popupPicture = document.querySelector(".popup_type_picture");
 const srcPicture = popupPicture.querySelector(".popup__picture");
@@ -63,8 +61,6 @@ function hidePopup(popupConst) {
 function activateProfileEditPopup() {
   nameInput.value = profileTitle.textContent;
   aboutInput.value = profileDescription.textContent;
-
-  resetFormValidation(profileEditForm, initValidateParam);
   showPopup(popupProfile);
 };
 
