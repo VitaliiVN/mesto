@@ -47,6 +47,9 @@ function closePopupOnEscapeKey(evt) {
 function showPopup(popupConst) {
   popupConst.classList.add("popup_opened");
   document.addEventListener("keydown", closePopupOnEscapeKey);
+  if (popupConst.querySelector(".popup__form")) {
+    document.addEventListener("keydown", closePopupOnEscapeKey);
+  }
 };
 
 // функция скрывающая Popup
@@ -110,7 +113,6 @@ function submitCardForm(evt) {
   }));
   cardAddForm.reset();
   hidePopup(popupCard);
-  //disableSbtButton(buttonSbtCard, "popup__submit-button_inactive");
 };
 
 //слушатель - редактирование профиля
@@ -119,7 +121,6 @@ profileEditButton.addEventListener("click", activateProfileEditPopup);
 //слушатель - закрытия формы редактирование профиля
 profileEditFormCloseButton.addEventListener("click", function () {
   hidePopup(popupProfile);
-  resetFormValidation(profileEditForm, initValidationParams);
 });
 
 //слушатель - сохрание полей профиля
@@ -133,9 +134,6 @@ cardAddButton.addEventListener("click", function () {
 //слушатель - закрытия формы добавления карточки
 cardAddFormCloseButton.addEventListener("click", function () {
   hidePopup(popupCard);
-  // добавлена очистка формы и полей валидации при закрытии формы
-  cardAddForm.reset();
-  resetFormValidation(cardAddForm, initValidationParams);
 });
 
 //слушатель - сохрание карточки
@@ -148,16 +146,8 @@ pictureCloseButton.addEventListener("click", function () {
 
 //слушатели - клик по оверлэю для закрытия попапа
 popupPicture.addEventListener("mousedown", closeOverlayClick);
-popupCard.addEventListener("mousedown", function () {
-  closeOverlayClick();
-  cardAddForm.reset();
-  resetFormValidation(cardAddForm, initValidationParams);
-});
-
-popupProfile.addEventListener("mousedown", function () {
-  closeOverlayClick();
-  resetFormValidation(profileEditForm, initValidationParams);
-});
+popupCard.addEventListener("mousedown", closeOverlayClick)
+popupProfile.addEventListener("mousedown", closeOverlayClick);
 
 //инициализация стартовых карточек из массива
 initialCards.forEach((item) =>

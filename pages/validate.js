@@ -83,15 +83,12 @@ function enableValidation (config) {
   });
 };
 
-//параметры валидации
-const initValidationParams = {
+// инициализация параметров валидации 
+enableValidation({
     formSelector: '.popup__form',
     inputSelector: '.popup__input',
     submitButtonSelector: '.popup__submit-button',
     inactiveButtonClass: 'popup__submit-button_inactive',
     inputErrorClass: '.popup__input-error',
     errorClass: 'popup__input-error_activated'
-}
-
-// инициализация параметров валидации 
-enableValidation(initValidationParams); 
+}); 
