@@ -73,14 +73,12 @@ function toggleButtonState (inputList, buttonElement, config) {
 // Включение валидации для всех форм
 function enableValidation (config) {
   const forms = Array.from(document.querySelectorAll(config.formSelector));
-  const forms = Array.from(document.querySelectorAll(config.formSelector));
   
   forms.forEach((formElement) => {
     formElement.addEventListener('submit', (evt) => {
       evt.preventDefault();
       resetFormValidation(formElement, config);
     });
-
     setEventListeners(formElement, config);
   });
 };
