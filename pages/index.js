@@ -46,9 +46,6 @@ function closePopupOnEscapeKey(evt) {
 function showPopup(popupConst) {
   popupConst.classList.add("popup_opened");
   document.addEventListener("keydown", closePopupOnEscapeKey);
-  if (popupConst.querySelector(".popup__form")) {
-    document.addEventListener("keydown", closePopupOnEscapeKey);
-  }
 };
 
 // функция скрывающая Popup
