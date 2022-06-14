@@ -1,4 +1,5 @@
 import initialCards from "./CardsPreset.js";
+import Card from "./Card.js";
 
 const profileEditButton = document.querySelector(".profile__edit-button");
 const cardAddButton = document.querySelector(".profile__add-button");
@@ -70,7 +71,7 @@ function submitProfileForm(evt) {
 };
 
 //Генерация карточки
-function createCard(paramList) {
+/*function createCard(paramList) {
   const cardElement = cardTemplate.querySelector(".element").cloneNode(true);
   const likeButton = cardElement.querySelector(".element__like-it");
   const trashButton = cardElement.querySelector(".element__trash-can");
@@ -97,6 +98,11 @@ function createCard(paramList) {
     pictureTitle.textContent = cardImage.getAttribute("alt");
   });
   return cardElement;
+};*/
+
+function createCard(paramList) {
+  const newCard = new Card(paramList, cardSelector);
+  return newCard.generateCard();
 };
 
 //Создание карточки через форму
