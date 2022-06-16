@@ -1,9 +1,8 @@
 import initialCards from "./CardsPreset.js";
 import Card from "./Сard.js";
 import FormValidator from "./FormValidator.js";
-
-export const popupPicture = document.querySelector(".popup_type_picture");
-
+import { popupPicture } from "../utils/constants.js";
+import { showPopup, hidePopup} from "../utils/utils.js";
 
 // инициализация параметров валидации 
 const initialParams = {
@@ -14,7 +13,6 @@ const initialParams = {
   inputErrorClass: '.popup__input-error',
   errorClass: 'popup__input-error_activated'
 }; 
-
 
 const profileEditButton = document.querySelector(".profile__edit-button");
 const cardAddButton = document.querySelector(".profile__add-button");
@@ -51,31 +49,11 @@ forms.forEach((formElement) => {
   });
 });
 
-
 // закрытие Popup по клику на оверлэй
 function closeOverlayClick(evt) {
   if (evt.target === evt.currentTarget || evt.target.classList.contains("popup__close-button") ) {
     hidePopup(evt.currentTarget);
   }
-};
-
-// закрытие Popup по клавише Esc
-function closePopupOnEscapeKey(evt) {
-  if (evt.key === "Escape") {
-    hidePopup(document.querySelector(".popup_opened"));
-  }
-};
-
-// функция отображающая Popup и скрывающая Popup
-export function showPopup(popupConst) {
-  popupConst.classList.add("popup_opened");
-  document.addEventListener("keydown", closePopupOnEscapeKey);
-};
-
-// функция скрывающая Popup
-function hidePopup(popupConst) {
-  popupConst.classList.remove("popup_opened");
-  document.removeEventListener("keydown", closePopupOnEscapeKey);
 };
 
 //Редактирование профиля
@@ -151,5 +129,3 @@ initialCards.forEach((item) =>
     titleValue: item.name
     }))
 );
-
-

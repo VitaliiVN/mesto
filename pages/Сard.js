@@ -1,4 +1,10 @@
-import { showPopup, popupPicture } from "./index.js";
+import {
+  popupPicture,
+  srcPicture,
+  pictureTitle
+} from "../utils/constants.js";
+
+import { showPopup } from "../utils/utils.js";
 
 export default class Card {
   constructor(data, cardSelector) {
@@ -11,6 +17,7 @@ export default class Card {
       .querySelector(this._cardSelector)
       .content.querySelector(".element")
       .cloneNode(true);
+    
     return cardElement ;
   }
   //публичный метод генерации карточки
@@ -18,6 +25,7 @@ export default class Card {
     this._cardElement = this._getCardTemplate();
     this._cardImage = this._cardElement.querySelector(".element__image");
 
+    this._likeButton = this._cardElement.querySelector(".element__like-it");
     this._setEventListeners();
     this._cardImage.src = this._data.srcValue;
     this._cardImage.alt = this._data.titleValue;
@@ -26,7 +34,7 @@ export default class Card {
   }
 
   _setEventListeners() {
-    this._cardElement.querySelector(".element__like-it").addEventListener("click", () => {
+    this._likeButton.addEventListener("click", () => {
     this._handleLikeBtnClick()
     });
     this._cardElement.querySelector(".element__trash-can").addEventListener("click", () => {
@@ -38,7 +46,7 @@ export default class Card {
   }
   //обработчик кнопки лайк
   _handleLikeBtnClick() {
-    this._cardElement.querySelector(".element__like-it").classList.toggle("element__like-it_activated");
+    this._likeButton.classList.toggle("element__like-it_activated");
   }
     
   //обработчик кнопки удаления
@@ -48,9 +56,6 @@ export default class Card {
 
   //обработчик клика по изображению на карточке  
   _handleImageClick() {
-    const srcPicture = document.querySelector(".popup__picture");
-    const pictureTitle = document.querySelector(".popup__picture-title");
-
     srcPicture.src = this._cardImage.src;
     srcPicture.alt = this._cardImage.alt;
     pictureTitle.textContent = this._cardImage.alt;
